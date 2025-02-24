@@ -22,11 +22,22 @@ const mockContacts: Record<string, Contact> = {
   },
 };
 
-export default function ContactPage({ params }: { params: { name: string } }) {
+type Props = {
+  params: {
+    name: string;
+  };
+};
+
+export async function generateStaticParams() {
+  return Object.keys(mockContacts).map((name) => ({ name }));
+}
+
+export default function ContactPage({ params }: Props) {
   const contact = mockContacts[params.name];
 
   if (!contact) {
-    notFound(); // Show 404 if contact doesn't exist
+    notFound();
+    return null; // Prevent further rendering
   }
 
   return (
