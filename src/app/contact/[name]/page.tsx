@@ -1,5 +1,8 @@
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import { IoIosCall } from "react-icons/io";
+import { IoMdMail } from "react-icons/io";
+import { IoLocationSharp } from "react-icons/io5";
 
 type Contact = {
   name: string;
@@ -50,25 +53,27 @@ export default async function ContactPage({ params }: Props) {
       </div>
       <h1 className="text-3xl font-bold">{contact.name}</h1>
 
-      <div className="flex space-x-4 mt-4">
-        <a href={`tel:${contact.phone}`} className="bg-white p-3 rounded-md text-blue-600">
-          📞
+      <div className="flex space-x-8 mt-8">
+        <a href={`tel:${contact.phone}`} className="bg-red-600 p-4 rounded-md text-blue-600">
+          <IoIosCall size={24} color="white"/>
         </a>
-        <a href={`mailto:${contact.email}`} className="bg-white p-3 rounded-md text-blue-600">
-          📧
+        <a href={`mailto:${contact.email}`} className="bg-red-600 p-4 rounded-md text-blue-600">
+        <IoMdMail size={24} color="white"/>
         </a>
         <a
           href={`https://www.google.com/maps/search/${encodeURIComponent(contact.location)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-white p-3 text-blue-600"
+          className="bg-red-600 rounded-md p-4 text-blue-600"
         >
-          📍
+          <IoLocationSharp size={24} color="white"/>
         </a>
       </div>
 
       <div className="bg-white text-blue-600 w-full mt-6">
-        <button className="w-full bg-red-600 text-white p-2 rounded-md mb-4">Add Contact</button>
+        <div className="justify-center flex">
+          <button className="w-80 bg-red-600 text-white p-6 rounded-md my-8 font-medium">add contact</button>
+        </div>
 
         <div className="flex items-center space-x-4">
           <span className="bg-gray-200 p-2 rounded-md">📱</span>
