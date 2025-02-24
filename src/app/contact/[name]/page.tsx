@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 
 type Contact = {
@@ -42,8 +43,11 @@ export default async function ContactPage({ params }: Props) {
   }
 
   return (
-    <main className="flex flex-col items-center min-h-screen p-6 bg-blue-600 text-white">
-      <div className="w-24 h-24 bg-gray-300 rounded-full mb-4"></div>
+    <main className="flex flex-col items-center min-h-screen bg-customBlue text-white">
+      {/* Logo Section */}
+      <div className="w-32 h-32 p-2 mt-16 mb-8 bg-white rounded-full">
+        <Image src="/logo/APEC.png" alt="APEC Logo" width={128} height={128} priority />
+      </div>
       <h1 className="text-3xl font-bold">{contact.name}</h1>
 
       <div className="flex space-x-4 mt-4">
@@ -57,14 +61,14 @@ export default async function ContactPage({ params }: Props) {
           href={`https://www.google.com/maps/search/${encodeURIComponent(contact.location)}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="bg-white p-3 rounded-md text-blue-600"
+          className="bg-white p-3 text-blue-600"
         >
           📍
         </a>
       </div>
 
-      <div className="bg-white text-blue-600 w-full p-4 mt-6 rounded-md">
-        <button className="w-full bg-blue-600 text-white p-2 rounded-md mb-4">Add Contact</button>
+      <div className="bg-white text-blue-600 w-full mt-6">
+        <button className="w-full bg-red-600 text-white p-2 rounded-md mb-4">Add Contact</button>
 
         <div className="flex items-center space-x-4">
           <span className="bg-gray-200 p-2 rounded-md">📱</span>
