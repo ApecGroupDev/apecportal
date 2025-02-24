@@ -22,23 +22,23 @@ const mockContacts: Record<string, Contact> = {
   },
 };
 
-// Adjust the return type to match Next.js expectations
+// Ensure params are wrapped correctly
 export async function generateStaticParams() {
-  return Object.keys(mockContacts).map((name) => ({ params: { name } }));
+  return Object.keys(mockContacts).map((name) => ({
+    name, // Adjusted to match Next.js 15 structure
+  }));
 }
 
 type Props = {
-  params: {
-    name: string;
-  };
+  params: Promise<{ name: string }>;
 };
 
-export default function ContactPage({ params }: Props) {
-  const contact = mockContacts[params.name];
+export default async function ContactPage({ params }: Props) {
+  const resolvedParams = await params; // Await params
+  const contact = mockContacts[resolvedParams.name];
 
   if (!contact) {
     notFound();
-    return null; // Prevent further rendering
   }
 
   return (
