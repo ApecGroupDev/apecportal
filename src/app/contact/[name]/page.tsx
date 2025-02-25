@@ -18,6 +18,7 @@ type Contact = {
   email: string;
   location: string;
   fax: string;
+  website: string;
 };
 
 const mockContacts: Record<string, Contact> = {
@@ -28,6 +29,7 @@ const mockContacts: Record<string, Contact> = {
     fax: '855-444-2732',
     email: 'john@example.com',
     location: '123 Main St, Cityville',
+    website: 'https://apec-mini.com/'
   },
   'jane-doe': {
     name: 'Jane Doe',
@@ -36,6 +38,7 @@ const mockContacts: Record<string, Contact> = {
     fax: '855-444-2732',
     email: 'jane@example.com',
     location: '456 Oak St, Townsville',
+    website: 'https://apec-mini.com/'
   },
 };
 
@@ -144,8 +147,7 @@ export default async function ContactPage({ params }: Props) {
             <BsGlobe size={24} color="black" />
           </span>
           <div>
-            <p className="font-bold text-black">{contact.landline}</p>
-            <p className="text-sm text-gray-600">Landline</p>
+            <p className="font-semibold text-black">{contact.website}</p>
           </div>
         </div>
 
