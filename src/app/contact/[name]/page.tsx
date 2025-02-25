@@ -10,6 +10,8 @@ import { FiUserPlus } from "react-icons/fi";
 import { BiEnvelope } from "react-icons/bi";
 import { BsGlobe } from "react-icons/bs";
 import { IoLocationOutline } from "react-icons/io5";
+import { IoBriefcaseOutline } from "react-icons/io5";
+import { FaLinkedinIn } from "react-icons/fa6";
 
 type Contact = {
   name: string;
@@ -19,6 +21,10 @@ type Contact = {
   location: string;
   fax: string;
   website: string;
+  addressLine1: string,
+  addressLine2: string,
+  position: string;
+  linkedin: string;
 };
 
 const mockContacts: Record<string, Contact> = {
@@ -29,7 +35,11 @@ const mockContacts: Record<string, Contact> = {
     fax: '855-444-2732',
     email: 'john@example.com',
     location: '123 Main St, Cityville',
-    website: 'https://apec-mini.com/'
+    website: 'https://apec-mini.com/',
+    addressLine1: '4732-E North Royal Atlanta Drive, 30084,',
+    addressLine2: 'Tucker, GA, United States',
+    position: 'General Superintendent',
+    linkedin: 'https://www.linkedin.com/company/apec-imaging-and-canopies/?external_page=LPC.Immersive&external_control=EmployerLogo&external_app_instance=837e22fa-74c9-471f-b9c6-20f2c56de93e&external_page_instance=a5a2c123-396d-4191-b7aa-7839fe2a4fde&experiment=displayLinkedInDataPrebind'
   },
   'jane-doe': {
     name: 'Jane Doe',
@@ -38,7 +48,11 @@ const mockContacts: Record<string, Contact> = {
     fax: '855-444-2732',
     email: 'jane@example.com',
     location: '456 Oak St, Townsville',
-    website: 'https://apec-mini.com/'
+    website: 'https://apec-mini.com/',
+    addressLine1: '4732-E North Royal Atlanta Drive, 30084,',
+    addressLine2: 'Tucker, GA, United States',
+    position: 'temp position',
+    linkedin: 'https://www.linkedin.com/company/apec-imaging-and-canopies/?external_page=LPC.Immersive&external_control=EmployerLogo&external_app_instance=837e22fa-74c9-471f-b9c6-20f2c56de93e&external_page_instance=a5a2c123-396d-4191-b7aa-7839fe2a4fde&experiment=displayLinkedInDataPrebind'
   },
 };
 
@@ -108,7 +122,7 @@ export default async function ContactPage({ params }: Props) {
           </div>
         </div>
 
-        <div className="flex items-center space-x-6 ms-4 mt-4">
+        <div className="flex items-center space-x-6 ms-4 mt-6">
           <span className="p-2 rounded-md">
             <IoMdBriefcase size={24} color="black" />
           </span>
@@ -118,7 +132,7 @@ export default async function ContactPage({ params }: Props) {
           </div>
         </div>
 
-        <div className="flex items-center space-x-6 ms-4 mt-4">
+        <div className="flex items-center space-x-6 ms-4 mt-6">
           <span className="p-2 rounded-md">
             <AiFillPrinter size={22} color="black" />
           </span>
@@ -132,7 +146,7 @@ export default async function ContactPage({ params }: Props) {
       {/* 2nd row icons */}
 
       <div className='bg-white w-full flex-col justify-center'>
-        <hr className='w-11/12 mx-auto mt-6' />
+        <hr className='w-11/12 mx-auto mt-8' />
         <div className="flex items-center space-x-6 ms-4 mt-4">
           <span className="p-2 rounded-md">
             <BiEnvelope size={24} color="black" />
@@ -142,24 +156,57 @@ export default async function ContactPage({ params }: Props) {
           </div>
         </div>
 
+        <hr className='w-11/12 mx-auto mt-4' />
         <div className="flex items-center space-x-6 ms-4 mt-4">
           <span className="p-2 rounded-md">
             <BsGlobe size={24} color="black" />
           </span>
           <div>
-            <p className="font-semibold text-black">{contact.website}</p>
+            <p className="text-black">{contact.website}</p>
           </div>
         </div>
 
+        <hr className='w-11/12 mx-auto mt-4' />
         <div className="flex items-center space-x-6 ms-4 mt-4">
           <span className="p-2 rounded-md">
             <IoLocationOutline size={24} color="black" />
           </span>
           <div>
-            <p className="font-bold text-black">{contact.phone}</p>
-            <p className="text-sm text-gray-600">Fax</p>
+            <p className="text-black">{contact.addressLine1}</p>
+            <p className="text-black">{contact.addressLine2}</p>
           </div>
         </div>
+
+        <hr className='w-11/12 mx-auto mt-4' />
+        <div className="flex items-center space-x-6 ms-4 mt-4">
+          <span className="p-2 rounded-md">
+            <IoBriefcaseOutline size={24} color="black" />
+          </span>
+          <div>
+            <p className="text-black">The APEC Group</p>
+            <p className="text-sm text-gray-600">{contact.position}</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Social Media */}
+
+      <div className='bg-white w-full flex-col justify-center'>
+        <hr className='w-11/12 mx-auto mt-8' />
+        <div className='w-full justify-center flex mt-8'>
+          <span className='text-gray-800'>Find me on:</span>
+        </div>
+        <div className="flex items-center space-x-6 ms-4 mt-4">
+          <span className="p-2 rounded-full bg-[#0A66C2]">
+            <FaLinkedinIn size={24} color="white" />
+          </span>
+          <div>
+            <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-black">
+              LinkedIn
+            </a>
+          </div>
+        </div>
+        <hr className='w-11/12 mx-auto my-8' />
       </div>
     </main>
   );
