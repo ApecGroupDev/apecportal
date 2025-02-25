@@ -25,6 +25,7 @@ type Contact = {
   addressLine2: string,
   position: string;
   linkedin: string;
+  company: string;
 };
 
 const mockContacts: Record<string, Contact> = {
@@ -33,25 +34,27 @@ const mockContacts: Record<string, Contact> = {
     phone: '678-943-4898',
     landline: '855-444-2732',
     fax: '855-444-2732',
-    email: 'john@example.com',
+    email: 'jsalazar@theapecgroup.com',
     location: '123 Main St, Cityville',
     website: 'https://apec-mini.com/',
     addressLine1: '4732-E North Royal Atlanta Drive, 30084,',
     addressLine2: 'Tucker, GA, United States',
-    position: 'General Superintendent',
+    position: 'Chief Operations Officer',
+    company: 'APEC IMAGING AND CANOPIES',
     linkedin: 'https://www.linkedin.com/company/apec-imaging-and-canopies/?external_page=LPC.Immersive&external_control=EmployerLogo&external_app_instance=837e22fa-74c9-471f-b9c6-20f2c56de93e&external_page_instance=a5a2c123-396d-4191-b7aa-7839fe2a4fde&experiment=displayLinkedInDataPrebind'
   },
   'jane-doe': {
-    name: 'Jane Doe',
+    name: 'Jose Salazar',
     phone: '+0987654321',
     landline: '855-444-2732',
     fax: '855-444-2732',
-    email: 'jane@example.com',
+    email: 'jose.salazar@theapecgroup.com',
     location: '456 Oak St, Townsville',
     website: 'https://apec-mini.com/',
     addressLine1: '4732-E North Royal Atlanta Drive, 30084,',
     addressLine2: 'Tucker, GA, United States',
-    position: 'temp position',
+    position: 'Project Manager',
+    company: 'APEC IMAGING AND CANOPIES',
     linkedin: 'https://www.linkedin.com/company/apec-imaging-and-canopies/?external_page=LPC.Immersive&external_control=EmployerLogo&external_app_instance=837e22fa-74c9-471f-b9c6-20f2c56de93e&external_page_instance=a5a2c123-396d-4191-b7aa-7839fe2a4fde&experiment=displayLinkedInDataPrebind'
   },
 };
@@ -183,7 +186,7 @@ export default async function ContactPage({ params }: Props) {
             <IoBriefcaseOutline size={24} color="black" />
           </span>
           <div>
-            <p className="text-black">The APEC Group</p>
+            <p className="text-black">{contact.company}</p>
             <p className="text-sm text-gray-600">{contact.position}</p>
           </div>
         </div>
