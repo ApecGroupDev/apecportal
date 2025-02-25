@@ -31,7 +31,7 @@ type Contact = {
 const mockContacts: Record<string, Contact> = {
   'jorge-salazar': {
     name: 'Jorge Salazar',
-    phone: '678-943-4898',
+    phone: '678-936-5312',
     landline: '855-444-2732',
     fax: '855-444-2732',
     email: 'jsalazar@theapecgroup.com',
@@ -45,7 +45,7 @@ const mockContacts: Record<string, Contact> = {
   },
   'jose-salazar': {
     name: 'Jose Salazar',
-    phone: '+0987654321',
+    phone: '678-943-4898',
     landline: '855-444-2732',
     fax: '855-444-2732',
     email: 'jose.salazar@theapecgroup.com',
