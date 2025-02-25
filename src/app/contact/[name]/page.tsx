@@ -79,41 +79,43 @@ export default async function ContactPage({ params }: Props) {
   }
 
   return (
-    <main className="flex flex-col items-center min-h-screen bg-customBlue text-white">
+    <main className="flex flex-col items-center min-h-screen bg-white">
       {/* Logo Section */}
-      <div className="w-32 h-32 p-2 mt-16 mb-8 bg-white rounded-full">
-        <Image src="/logo/APEC.png" alt="APEC Logo" width={128} height={128} priority />
+      <div className='flex  flex-col items-center bg-customBlue w-full'>
+        <div className="w-32 h-32 p-2 mt-16 mb-8 bg-white rounded-full">
+          <Image src="/logo/APEC.png" alt="APEC Logo" width={128} height={128} priority />
+        </div>
+        <h1 className="text-3xl text-white font-bold">{contact.name}</h1>
+
+        <div className="flex space-x-8 mt-8">
+          <div className="flex flex-col items-center space-y-2">
+            <a href={`tel:${contact.phone}`} className="bg-red-600 p-4 rounded-md !text-black">
+              <IoIosCall size={24} color="white" />
+            </a>
+            <span className="text-gray-200 text-sm">Call</span>
+          </div>
+
+          <div className="flex flex-col items-center space-y-2">
+            <a href={`mailto:${contact.email}`} className="bg-red-600 p-4 rounded-md text-blue-600">
+              <IoMdMail size={24} color="white" />
+            </a>
+            <span className="text-gray-200 text-sm">Email</span>
+          </div>
+          <div className="flex flex-col items-center space-y-2 mb-8">
+            <a
+              href={`https://www.google.com/maps/search/${encodeURIComponent(contact.location)}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-red-600 rounded-md p-4 text-blue-600"
+            >
+              <IoLocationSharp size={24} color="white" />
+            </a>
+            <span className="text-gray-200 text-sm">Location</span>
+          </div>
+        </div>
       </div>
-      <h1 className="text-3xl font-bold">{contact.name}</h1>
 
-      <div className="flex space-x-8 mt-8">
-        <div className="flex flex-col items-center space-y-2">
-          <a href={`tel:${contact.phone}`} className="bg-red-600 p-4 rounded-md !text-black">
-            <IoIosCall size={24} color="white" />
-          </a>
-          <span className="text-gray-200 text-sm">Call</span>
-        </div>
-
-        <div className="flex flex-col items-center space-y-2">
-          <a href={`mailto:${contact.email}`} className="bg-red-600 p-4 rounded-md text-blue-600">
-            <IoMdMail size={24} color="white" />
-          </a>
-          <span className="text-gray-200 text-sm">Email</span>
-        </div>
-        <div className="flex flex-col items-center space-y-2">
-        <a
-          href={`https://www.google.com/maps/search/${encodeURIComponent(contact.location)}`}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-red-600 rounded-md p-4 text-blue-600"
-        >
-          <IoLocationSharp size={24} color="white" />
-        </a>
-        <span className="text-gray-200 text-sm">Location</span>
-        </div>
-      </div>
-
-      <div className="bg-white text-blue-600 w-full mt-6">
+      <div className="bg-white text-blue-600 w-full">
         <div className="justify-center flex">
           <button className="w-72 bg-red-600 text-white p-4 rounded-full my-8 font-medium flex items-center justify-center space-x-2">
             <FiUserPlus size={24} />
@@ -124,102 +126,104 @@ export default async function ContactPage({ params }: Props) {
 
       {/* First 3 icons */}
 
-      <div className='bg-white w-full flex-col justify-center'>
-        <div className="flex items-center space-x-6 ms-4">
-          <span className="p-2 rounded-md">
-            <MdOutlinePhoneIphone size={24} color="black" />
-          </span>
-          <div>
-            <p className="text-black">{contact.phone}</p>
-            <p className="text-sm text-gray-600">Mobile Phone</p>
+      <div className='bg-white'>
+        <div className='bg-white w-full flex-col justify-center'>
+          <div className="flex items-center space-x-6">
+            <span className="p-2 rounded-md">
+              <MdOutlinePhoneIphone size={24} color="black" />
+            </span>
+            <div>
+              <p className="text-black">{contact.phone}</p>
+              <p className="text-sm text-gray-600">Mobile Phone</p>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-6 mt-6">
+            <span className="p-2 rounded-md">
+              <IoMdBriefcase size={24} color="black" />
+            </span>
+            <div>
+              <p className="text-black">{contact.landline}</p>
+              <p className="text-sm text-gray-600">Landline</p>
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-6 mt-6">
+            <span className="p-2 rounded-md">
+              <AiFillPrinter size={22} color="black" />
+            </span>
+            <div>
+              <p className="text-black">{contact.phone}</p>
+              <p className="text-sm text-gray-600">Fax</p>
+            </div>
           </div>
         </div>
 
-        <div className="flex items-center space-x-6 ms-4 mt-6">
-          <span className="p-2 rounded-md">
-            <IoMdBriefcase size={24} color="black" />
-          </span>
-          <div>
-            <p className="text-black">{contact.landline}</p>
-            <p className="text-sm text-gray-600">Landline</p>
+        {/* 2nd row icons */}
+
+        <div className='bg-white w-full flex-col justify-center'>
+          <hr className='w-11/12 mx-auto mt-8' />
+          <div className="flex items-center space-x-6 mt-4">
+            <span className="p-2 rounded-md">
+              <BiEnvelope size={24} color="black" />
+            </span>
+            <div>
+              <p className="text-black">{contact.email}</p>
+            </div>
+          </div>
+
+          <hr className='w-11/12 mx-auto mt-4' />
+          <div className="flex items-center space-x-6 mt-4">
+            <span className="p-2 rounded-md">
+              <BsGlobe size={24} color="black" />
+            </span>
+            <div>
+              <p className="text-black">{contact.website}</p>
+            </div>
+          </div>
+
+          <hr className='w-11/12 mx-auto mt-4' />
+          <div className="flex items-center space-x-6 mt-4">
+            <span className="p-2 rounded-md">
+              <IoLocationOutline size={24} color="black" />
+            </span>
+            <div>
+              <p className="text-black">{contact.addressLine1}</p>
+              <p className="text-black">{contact.addressLine2}</p>
+            </div>
+          </div>
+
+          <hr className='w-11/12 mx-auto mt-4' />
+          <div className="flex items-center space-x-6 mt-4">
+            <span className="p-2 rounded-md">
+              <IoBriefcaseOutline size={24} color="black" />
+            </span>
+            <div>
+              <p className="text-black">{contact.company}</p>
+              <p className="text-sm text-gray-600">{contact.position}</p>
+            </div>
           </div>
         </div>
 
-        <div className="flex items-center space-x-6 ms-4 mt-6">
-          <span className="p-2 rounded-md">
-            <AiFillPrinter size={22} color="black" />
-          </span>
-          <div>
-            <p className="text-black">{contact.phone}</p>
-            <p className="text-sm text-gray-600">Fax</p>
+        {/* Social Media */}
+
+        <div className='bg-white w-full flex-col justify-center'>
+          <hr className='w-11/12 mx-auto mt-8' />
+          <div className='w-full justify-center flex mt-8'>
+            <span className='text-gray-800'>Find me on:</span>
           </div>
-        </div>
-      </div>
-
-      {/* 2nd row icons */}
-
-      <div className='bg-white w-full flex-col justify-center'>
-        <hr className='w-11/12 mx-auto mt-8' />
-        <div className="flex items-center space-x-6 ms-4 mt-4">
-          <span className="p-2 rounded-md">
-            <BiEnvelope size={24} color="black" />
-          </span>
-          <div>
-            <p className="text-black">{contact.email}</p>
+          <div className="flex items-center space-x-6 mt-4">
+            <span className="p-2 rounded-full bg-[#0A66C2]">
+              <FaLinkedinIn size={24} color="white" />
+            </span>
+            <div>
+              <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-black">
+                LinkedIn
+              </a>
+            </div>
           </div>
+          <hr className='w-11/12 mx-auto my-8' />
         </div>
-
-        <hr className='w-11/12 mx-auto mt-4' />
-        <div className="flex items-center space-x-6 ms-4 mt-4">
-          <span className="p-2 rounded-md">
-            <BsGlobe size={24} color="black" />
-          </span>
-          <div>
-            <p className="text-black">{contact.website}</p>
-          </div>
-        </div>
-
-        <hr className='w-11/12 mx-auto mt-4' />
-        <div className="flex items-center space-x-6 ms-4 mt-4">
-          <span className="p-2 rounded-md">
-            <IoLocationOutline size={24} color="black" />
-          </span>
-          <div>
-            <p className="text-black">{contact.addressLine1}</p>
-            <p className="text-black">{contact.addressLine2}</p>
-          </div>
-        </div>
-
-        <hr className='w-11/12 mx-auto mt-4' />
-        <div className="flex items-center space-x-6 ms-4 mt-4">
-          <span className="p-2 rounded-md">
-            <IoBriefcaseOutline size={24} color="black" />
-          </span>
-          <div>
-            <p className="text-black">{contact.company}</p>
-            <p className="text-sm text-gray-600">{contact.position}</p>
-          </div>
-        </div>
-      </div>
-
-      {/* Social Media */}
-
-      <div className='bg-white w-full flex-col justify-center'>
-        <hr className='w-11/12 mx-auto mt-8' />
-        <div className='w-full justify-center flex mt-8'>
-          <span className='text-gray-800'>Find me on:</span>
-        </div>
-        <div className="flex items-center space-x-6 ms-4 mt-4">
-          <span className="p-2 rounded-full bg-[#0A66C2]">
-            <FaLinkedinIn size={24} color="white" />
-          </span>
-          <div>
-            <a href={contact.linkedin} target="_blank" rel="noopener noreferrer" className="text-black">
-              LinkedIn
-            </a>
-          </div>
-        </div>
-        <hr className='w-11/12 mx-auto my-8' />
       </div>
     </main>
   );
