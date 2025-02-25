@@ -3,8 +3,8 @@
 import { QRCodeCanvas } from 'qrcode.react';
 
 const contacts = [
-  { id: 'john-doe', name: 'John Doe' },
-  { id: 'jane-doe', name: 'Jane Smith' },
+  { id: 'jorge-salazar', name: 'Jorge Salazar' },
+  { id: 'jose-salazar', name: 'Jose Salazar' },
 ];
 
 export default function QRPage() {
