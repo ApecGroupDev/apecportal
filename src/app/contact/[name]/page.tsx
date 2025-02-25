@@ -29,7 +29,7 @@ type Contact = {
 };
 
 const mockContacts: Record<string, Contact> = {
-  'john-doe': {
+  'jorge-salazar': {
     name: 'Jorge Salazar',
     phone: '678-943-4898',
     landline: '855-444-2732',
@@ -43,7 +43,7 @@ const mockContacts: Record<string, Contact> = {
     company: 'APEC IMAGING AND CANOPIES',
     linkedin: 'https://www.linkedin.com/company/apec-imaging-and-canopies/?external_page=LPC.Immersive&external_control=EmployerLogo&external_app_instance=837e22fa-74c9-471f-b9c6-20f2c56de93e&external_page_instance=a5a2c123-396d-4191-b7aa-7839fe2a4fde&experiment=displayLinkedInDataPrebind'
   },
-  'jane-doe': {
+  'jose-salazar': {
     name: 'Jose Salazar',
     phone: '+0987654321',
     landline: '855-444-2732',
