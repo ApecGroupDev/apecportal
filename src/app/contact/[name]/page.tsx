@@ -87,12 +87,20 @@ export default async function ContactPage({ params }: Props) {
       <h1 className="text-3xl font-bold">{contact.name}</h1>
 
       <div className="flex space-x-8 mt-8">
-        <a href={`tel:${contact.phone}`} className="bg-red-600 p-4 rounded-md !text-black">
-          <IoIosCall size={24} color="white" />
-        </a>
-        <a href={`mailto:${contact.email}`} className="bg-red-600 p-4 rounded-md text-blue-600">
-          <IoMdMail size={24} color="white" />
-        </a>
+        <div className="flex flex-col items-center space-y-2">
+          <a href={`tel:${contact.phone}`} className="bg-red-600 p-4 rounded-md !text-black">
+            <IoIosCall size={24} color="white" />
+          </a>
+          <span className="text-gray-200 text-sm">Call</span>
+        </div>
+
+        <div className="flex flex-col items-center space-y-2">
+          <a href={`mailto:${contact.email}`} className="bg-red-600 p-4 rounded-md text-blue-600">
+            <IoMdMail size={24} color="white" />
+          </a>
+          <span className="text-gray-200 text-sm">Email</span>
+        </div>
+        <div className="flex flex-col items-center space-y-2">
         <a
           href={`https://www.google.com/maps/search/${encodeURIComponent(contact.location)}`}
           target="_blank"
@@ -101,6 +109,8 @@ export default async function ContactPage({ params }: Props) {
         >
           <IoLocationSharp size={24} color="white" />
         </a>
+        <span className="text-gray-200 text-sm">Location</span>
+        </div>
       </div>
 
       <div className="bg-white text-blue-600 w-full mt-6">
